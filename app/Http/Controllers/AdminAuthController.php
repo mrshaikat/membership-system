@@ -7,10 +7,13 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
+use App\Providers\RouteServiceProvider;
 
 class AdminAuthController extends Controller
 {
     use AuthenticatesUsers;
+
+    protected $redirectTo = RouteServiceProvider::ADMIN_DASH;
 
     // Admin Login Page Show
     public function loginPage(){
@@ -35,9 +38,18 @@ class AdminAuthController extends Controller
         return redirect() -> route('admin.login');
     }
 
+    public function dashboard(){
+        return view('admin.dashboard');
+    }
+
+
+
 
     protected function guard()
-{
-    return Auth::guard('admin');
-}
+        {
+            return Auth::guard('admin');
+        }
+    
+    
+
 }

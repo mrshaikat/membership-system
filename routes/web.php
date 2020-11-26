@@ -32,3 +32,4 @@ Route::get('admin', 'App\Http\Controllers\AdminAuthController@loginPage') -> nam
 Route::post('admin', 'App\Http\Controllers\AdminAuthController@login') -> name('admin.login');
 Route::get('admin-register', 'App\Http\Controllers\AdminAuthController@registerPage') -> name('admin.register');
 Route::post('admin-register', 'App\Http\Controllers\AdminAuthController@registerAdmin') -> name('admin.register');
+Route::get('admin-dashboard', 'App\Http\Controllers\AdminAuthController@dashboard')-> name('admin.dash');
